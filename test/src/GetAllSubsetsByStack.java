@@ -79,14 +79,14 @@ public class GetAllSubsetsByStack {
     public void toStacklist(int summa) {
         int sum = 0;
         for (int i = 0; i < stacks.size(); i++) {
-            sum += (int)stacks.get(i);
-            list.add(stacks.get(i));
-            if (sum == summa){
-                System.out.println(list);
-                stackslist.add(list);
-                list.clear();
-                sum = 0;
-            }
+        sum += (int)stacks.get(i);
+        list.add(stacks.get(i));
+        if (sum == summa){
+            ArrayList temp = new ArrayList(list);
+            stackslist.add(temp);
+            list.clear();
+            sum = 0;
         }
     }
+}
 }

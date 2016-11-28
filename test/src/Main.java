@@ -13,8 +13,6 @@ public class Main {
         koormad.toStacklist(15);
         System.out.println(koormad.stackslist);
 
-        System.out.println(koormad.stacks);
-        //System.out.println(koormad.stackslist);
     }
 
 }
