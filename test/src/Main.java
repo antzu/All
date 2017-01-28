@@ -2,17 +2,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
+    public static ArrayList autod = new ArrayList();
+    public static int [] DATA = {5, 5, 5, 10, 10, 5, 5, 5, 5, 5, 5, 5, 5, 6};
+
     public static void main(String[] args) {
-        int [] DATA = {1, 3, 4, 5, 6, 7, 8, 9, 2, 5, 6, 7, 8};
+        autod.add(10);
+        autod.add(20);
+        autod.add(20);
+        autod.add(20);
+        autod.add(10);
+        autod.add(10);
+        sitt sitt = new sitt();
+        int sum = 0;
+        for (int i = 0; i < DATA.length; i++) {
+            sum+= DATA[i];
 
-       System.out.println(Arrays.toString(DATA));
-        GetAllSubsetsByStack koormad = new GetAllSubsetsByStack(15);
-
-        koormad.populateSubset(DATA, 0, DATA.length);
-
-        koormad.toStacklist(15);
-        System.out.println(koormad.stackslist);
-
+        }
+        System.out.println(sum);
+        sitt.autokoormad(autod, DATA);
     }
-
 }

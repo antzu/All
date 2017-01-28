@@ -73,7 +73,7 @@ public class GetAllSubsetsByStack {
             stacks.add(i);
             sb.append(i).append("+");
         }
-        System.out.println(sb.deleteCharAt(sb.length() - 1).toString());
+        //System.out.println(sb.deleteCharAt(sb.length() - 1).toString());
     }
 
     public void toStacklist(int summa) {
