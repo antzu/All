@@ -1,19 +1,14 @@
-public class Legend {
-    public static void main(String[] args) {
-        int kollilElusid;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
-        int elusid = 35;
-        Zelda zelda = new Zelda(elusid);
-
-        kollilElusid = 25;
-        zelda.kaklusKolliga(kollilElusid);
-
-        zelda.prindiMituEluAlles();
-
-        kollilElusid = 57;
-        zelda.kaklusKolliga(kollilElusid);
-
-        zelda.prindiKasOnElus();
-
+public class Legend extends Application {
+    public void start(Stage primaryStage) throws Exception{
+        Stage s = new Stage();
+        Pane p = new Pane();
+        Scene sc = new Scene(p, 600, 600);
+        s.setScene(sc);
+        s.show();
     }
 }
