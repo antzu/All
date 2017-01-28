@@ -29,7 +29,8 @@ public class Legend extends Application {
         p.getChildren().addAll(l);
         //ringid(p);
         //ristkulik(p);
-        joon(p);
+        //joon(p);
+        tagaajamine(p);
 
     }
     public void ringid (Pane p){
@@ -82,5 +83,13 @@ public class Legend extends Application {
         });
 
 
+    }
+    public void tagaajamine(Pane p){
+        Circle c = new Circle(Math.random()*400, Math.random()*400, 40);
+        p.getChildren().addAll(c);
+        c.setOnMouseEntered(event -> {
+            c.setCenterX(Math.random()*400);
+            c.setCenterY(Math.random()*400);
+        });
     }
 }
