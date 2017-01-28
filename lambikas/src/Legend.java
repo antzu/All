@@ -3,6 +3,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -27,7 +28,9 @@ public class Legend extends Application {
         l.setLayoutY(200);
         p.getChildren().addAll(l);
         //ringid(p);
-        ristkulik(p);
+        //ristkulik(p);
+        joon(p);
+
     }
     public void ringid (Pane p){
 
@@ -55,5 +58,29 @@ public class Legend extends Application {
                 });
             });
         }
+    }
+    public void joon (Pane p){
+        Stage s = new Stage();
+        s.show();
+        GridPane pane = new GridPane();
+        Scene sc = new Scene(pane, 300, 300);
+        s.setScene(sc);
+        TextField tf1 = new TextField("X alg");
+        TextField tf2 = new TextField("X lopp");
+        TextField tf3 = new TextField("y alg");
+        TextField tf4 = new TextField("y lopp");
+        Button b = new Button("Kinnita ja joonista");
+        pane.add(tf1, 1, 1);
+        pane.add(tf2, 1, 2);
+        pane.add(tf3, 1, 3);
+        pane.add(tf4, 1, 4);
+        pane.add(b, 1, 5);
+        b.setOnAction(event -> {
+            Line l = new Line(parseInt(tf1.getText()),parseInt(tf2.getText()),parseInt(tf3.getText()),parseInt(tf4.getText()));
+            p.getChildren().addAll(l);
+            s.close();
+        });
+
+
     }
 }
