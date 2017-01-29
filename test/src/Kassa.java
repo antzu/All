@@ -8,30 +8,26 @@ public class Kassa {
     ArrayList<Toode> ladu = new ArrayList<>();
 
     static int laoskokku = 0;
+    static int keskminehind = 0;
+    static int hindkokku = 0;
 
     public void lisaArhiivi(Toode toode) {
         arhiiv.add(toode);
         laoskokku = laoskokku + toode.getKogus();
-        for (int i = 0; i < ladu.size(); i++) {
-            if (ladu.get(i).getNimi() == toode.getNimi()) {
-                ladu.get(i).setKogus(ladu.get(i).getKogus() + toode.getKogus());
-                setToodeUusHind(i, toode);
-            } else {
-                ladu.add(toode);
-
-            }
-        }
+        hindkokku = hindkokku + toode.getHind()*toode.getKogus();
+        keskminehind = hindkokku / laoskokku;
     }
 
-    public void setToodeUusHind(int i, Toode toode) {
+
+    public void setToodeKeskmHind(int i, Toode toode) {
         int alghind = ladu.get(i).getHind();
         int kogus = ladu.get(i).getKogus();
-        int uushind = (alghind + toode.getHind()) / (kogus + toode.getKogus());
+        int uushind = (alghind*kogus + toode.getHind()*toode.getKogus()) / (kogus + toode.getKogus());
         ladu.get(i).setHind(uushind);
     }
 
     public void laoSaldo() {
-
+        
     }
 
     public void eemaldaLaost(Toode toode) {

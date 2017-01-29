@@ -24,7 +24,8 @@ public class Main extends Application {
             TextField hind = new TextField("2");
             Button kinnita = new Button("Kinnita");
             Label laoskokku = new Label("Laos hetkel tooteid: " + kassa.laoskokku);
-            Label kokkuhind = new Label("Toodete hind kokku: " + kassa);
+            Label kokkuhind = new Label("Toodete hind kokku: " + kassa.hindkokku);
+            Label keskmhind = new Label("Toodete hind keskmine: " + kassa.keskminehind);
             gp.add(lnimi, 1, 1);
             gp.add(nimi, 2, 1);
             gp.add(lkogus, 1, 2);
@@ -33,13 +34,17 @@ public class Main extends Application {
             gp.add(hind, 2, 3);
             gp.add(kinnita, 2, 4);
             gp.add(laoskokku, 1, 5);
+            gp.add(kokkuhind, 1, 6);
+            gp.add(keskmhind, 1, 7);
 
             kinnita.setOnAction(event -> {
                 Date now = new Date();
                 Toode toode = new Toode(nimi.getText(), Integer.parseInt(kogus.getText()), Integer.parseInt(hind.getText()), now);
                 kassa.lisaArhiivi(toode);
                 laoskokku.setText("Laos hetkel tooteid: " + kassa.laoskokku);
-                kassa.prindiLadu();
+                kokkuhind.setText("Toodete hind kokku: " + kassa.hindkokku);
+                keskmhind.setText("Toodete hind kokku: " + kassa.keskminehind);
+                //kassa.prindiLadu();
             });
 
 
