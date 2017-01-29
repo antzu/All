@@ -6,8 +6,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 public class Main extends Application {
@@ -18,24 +16,30 @@ public class Main extends Application {
             s.setScene(sc);
             Kassa kassa = new Kassa();
 
-            TextField nimi = new TextField("Nimi");
-            TextField kogus = new TextField("Kogus");
-            TextField hind = new TextField("Hind");
+            Label lnimi = new Label("Toote nimi:");
+            TextField nimi = new TextField("Banaan");
+            Label lkogus = new Label("Toote kogus:");
+            TextField kogus = new TextField("10");
+            Label lhind = new Label("Toote hind:");
+            TextField hind = new TextField("2");
             Button kinnita = new Button("Kinnita");
-            gp.add(nimi, 1, 1);
-            gp.add(kogus, 1, 2);
-            gp.add(hind, 1, 3);
-            gp.add(kinnita, 1, 4);
-
             Label laoskokku = new Label("Laos hetkel tooteid: " + kassa.laoskokku);
-
+            Label kokkuhind = new Label("Toodete hind kokku: " + kassa);
+            gp.add(lnimi, 1, 1);
+            gp.add(nimi, 2, 1);
+            gp.add(lkogus, 1, 2);
+            gp.add(kogus, 2, 2);
+            gp.add(lhind, 1, 3);
+            gp.add(hind, 2, 3);
+            gp.add(kinnita, 2, 4);
             gp.add(laoskokku, 1, 5);
 
             kinnita.setOnAction(event -> {
                 Date now = new Date();
                 Toode toode = new Toode(nimi.getText(), Integer.parseInt(kogus.getText()), Integer.parseInt(hind.getText()), now);
-                kassa.lisaLattu(toode);
+                kassa.lisaArhiivi(toode);
                 laoskokku.setText("Laos hetkel tooteid: " + kassa.laoskokku);
+                kassa.prindiLadu();
             });
 
 

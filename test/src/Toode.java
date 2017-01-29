@@ -15,6 +15,9 @@ public class Toode {
         this.hind = hind;
         this.kpv = kpv;
     }
+    public String toString(){
+        return (this.getNimi() + " Kogus: "+this.getKogus()+" Hind: "+this.getHind()+" kuupaev: "+this.getKpv());
+    }
 
     public String getNimi() {
         return nimi;
