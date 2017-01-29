@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -26,10 +27,15 @@ public class Main extends Application {
             gp.add(hind, 1, 3);
             gp.add(kinnita, 1, 4);
 
+            Label laoskokku = new Label("Laos hetkel tooteid: " + kassa.laoskokku);
+
+            gp.add(laoskokku, 1, 5);
+
             kinnita.setOnAction(event -> {
                 Date now = new Date();
                 Toode toode = new Toode(nimi.getText(), Integer.parseInt(kogus.getText()), Integer.parseInt(hind.getText()), now);
                 kassa.lisaLattu(toode);
+                laoskokku.setText("Laos hetkel tooteid: " + kassa.laoskokku);
             });
 
 
