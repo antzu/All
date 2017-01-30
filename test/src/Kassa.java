@@ -7,14 +7,20 @@ public class Kassa {
     ArrayList<Toode> arhiiv = new ArrayList<>();
     ArrayList<Toode> ladu = new ArrayList<>();
 
-    static int laoskokku = 0;
-    static int keskminehind = 0;
-    static int hindkokku = 0;
+    private static int laoskokku = 0;
+    private static int keskminehind = 0;
+    private static int hindkokku = 0;
 
     public void lisaArhiivi(Toode toode) {
         arhiiv.add(toode);
         laoskokku = laoskokku + toode.getKogus();
         hindkokku = hindkokku + toode.getHind()*toode.getKogus();
+        keskminehind = hindkokku / laoskokku;
+    }
+    public void lisaMüük(Toode toode){
+        arhiiv.add(toode)
+        laoskokku = laoskokku - toode.getKogus();
+        hindkokku = hindkokku - toode.getHind()*toode.getKogus();
         keskminehind = hindkokku / laoskokku;
     }
 
